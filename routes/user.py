@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request
+from config import initClass
 
 user_bp = Blueprint("user", __name__)
-
 
 @user_bp.route('/')
 @user_bp.route('/login')
@@ -19,6 +19,7 @@ def login():
         pw = req.get("password")
 
         # 서버 연결
-        # print(email, pw)
+        row = User.query.filter_by(id=84723726).first()
+        print(row)
 
         return render_template('user/login.html')
